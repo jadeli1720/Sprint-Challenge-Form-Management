@@ -3,8 +3,8 @@ import axios from "axios";
 import { Form, Field, withFormik } from "formik";
 import * as Yup from "yup";
 
-const RegForm = (props) => {
-    return(
+const RegForm = ({ errors, touched }) => {
+    return (
         <div className="formContainer">
             <div>
                 <h2>Register Below</h2>
@@ -13,11 +13,18 @@ const RegForm = (props) => {
                 <label className='formGroup'>
                     <p className='label'>Username:</p>
                     <Field type='text' name='username' placeholder='Username' />
+                    {touched.username && errors.username && (
+                        <p className='errors'>{errors.username}</p>
+                    )}
                 </label>
                 <label className='formGroup'>
                     <p className='label'>Password:</p>
                     <Field type='password' name='password' placeholder='Password' />
+                    {touched.password && errors.password && (
+                        <p className='errors'>{errors.password}</p>
+                    )}
                 </label>
+                <button type='submit' className="submit">Submit</button>
             </Form>
         </div>
     )
@@ -26,9 +33,9 @@ const RegForm = (props) => {
 const FormikRegForm = withFormik({
 
     //handle state and state changes
-    mapPropsToValues({ username, password }){
+    mapPropsToValues({ username, password }) {
         return {
-            username:username || '',
+            username: username || '',
             password: password || ''
         };
     },
