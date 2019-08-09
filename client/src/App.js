@@ -1,7 +1,6 @@
 import React from 'react';
-import axios from "axios";
 import RegForm from './components/RegForm';
-import RecipeCards from './components/RecipeCards';
+import RecipeCards from './components/RecipeList';
 
 import './App.css';
 

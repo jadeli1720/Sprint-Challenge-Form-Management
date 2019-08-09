@@ -23,7 +23,7 @@ class RecipeCard extends React.Component {
         axios
             .get(`http://localhost:5000/api/restricted/data`)
             .then(res => {
-                // this.setState({recipe:data});
+                this.setState({recipes:res.data});
                 console.log('Data Retrieved!', res);
             })
             .catch(err => console.log('Sorry! The api is down', err))
@@ -33,11 +33,11 @@ class RecipeCard extends React.Component {
         return (
             <div className="cardsContainer">
               <div>
-                {this.state.recipes.map(recipe => {
+                {this.state.recipes.map((recipe, key) => {
                   return (
                       <div>
-                          <Recipe key={recipe.id}
-                              item={recipe.data} />
+                          <Recipe key={Date.now()}
+                                  item={recipe} />
                       </div>
                   )
                 })}

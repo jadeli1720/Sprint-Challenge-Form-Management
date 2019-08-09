@@ -3,8 +3,15 @@ import React from 'react';
 const Recipe = props => {
     console.log('Recipe',props)
     return(
-        <div className>
-            {props.data.name}
+        <div className="card">
+            {props.item.name}
+            {props.item.course}
+            {props.item.technique}
+            <ul>Ingredients
+            {props.item.ingredients.map(item => {
+                return(<li> {item}</li>)
+})}
+            </ul>
         </div>
     )
 }
