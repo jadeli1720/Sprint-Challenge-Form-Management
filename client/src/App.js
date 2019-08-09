@@ -1,6 +1,7 @@
 import React from 'react';
 import axios from "axios";
-import RegForm from './RegForm';
+import RegForm from './components/RegForm';
+import RecipeCards from './components/RecipeCards';
 
 import './App.css';
 
@@ -9,36 +10,16 @@ class App extends React.Component {
   constructor() {
     super();
     this.state = {
-      recipes: []
+      users: []
     }
   }
-    //life cycle method;
-    componentDidMount() {
-      this.fetchRecipes();
-    }
-
-    //.get(`http://localhost:5000/api/restricted/data`)
-    //map over this data
-    fetchRecipes = () => {
-      axios
-      .get(`http://localhost:5000/api/restricted/data`)
-      .then(res => {
-        // this.setState({recipe:data});
-        console.log('Data Retrieved!', res);
-      })
-      .catch(err => console.log('Sorry! The api is down', err))
-    }
-  
+    
   render() {
     return (
       <div className="App">
         <h1>Registration</h1>
         <RegForm />
-        <div>
-          {this.state.recipes.map(recipe => {
-            return 
-          })}
-        </div>
+        <RecipeCards />
       </div>
     );
   }
