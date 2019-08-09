@@ -1,7 +1,6 @@
 import React from 'react';
 
 const Recipe = props => {
-    console.log('Recipe',props)
     return(
         <div className="card">
             {props.item.name}

@@ -18,6 +18,7 @@ class App extends React.Component {
       <div className="App">
         <h1>Registration</h1>
         <RegForm />
+        <h1>Recipe's</h1>
         <RecipeCards />
       </div>
     );

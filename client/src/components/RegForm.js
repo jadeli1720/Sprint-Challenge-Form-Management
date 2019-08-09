@@ -3,13 +3,13 @@ import axios from "axios";
 import { Form, Field, withFormik } from "formik";
 import * as Yup from "yup";
 
-const RegForm = ({ errors, touched }) => {
+const RegForm = (props, { errors, touched }) => {
     return (
         <div className="formContainer">
             <div>
                 <h2>Register Below</h2>
             </div>
-            <Form>
+            <Form onSubmit={props.onSubmit} data-testid="form">
                 <label className='formGroup'>
                     <p className='label'>Username:</p>
                     <Field type='text' name='username' placeholder='Username' />
@@ -43,7 +43,7 @@ const FormikRegForm = withFormik({
     //======VALIDATION SCHEMA==========
     validationSchema: Yup.object().shape({
         username: Yup.string()
-            .required("Name is required"),
+            .required("A unique username is required"),
 
         password: Yup.string()
             .min(6, 'Password must be 6 characters or longer')
@@ -52,13 +52,12 @@ const FormikRegForm = withFormik({
     //======END VALIDATION SCHEMA==========    
 
     //handle submit with axios post()
-    handleSubmit(values, { resetForm, setStatus }) {
+    handleSubmit(values, { resetForm }) {
         axios
             .post(`http://localhost:5000/api/register`, values)
             .then(res => {
                 console.log('Form was a success', res)
                 resetForm();
-                setStatus(res.data)
             })
             .catch(err => console.log('Opps! Something went wrong.', err.response));
     }
