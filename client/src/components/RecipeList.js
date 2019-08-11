@@ -5,7 +5,7 @@ import Recipe from './Recipe'
 
 
 
-class RecipeCard extends React.Component {
+class RecipeList extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -33,10 +33,10 @@ class RecipeCard extends React.Component {
         return (
             <div className="cardsContainer">
               <div>
-                {this.state.recipes.map((recipe, key) => {
+                {this.state.recipes.map((recipe, index) => {
                   return (
                       <div>
-                          <Recipe key={Date.now()}
+                          <Recipe key={index.id}
                                   item={recipe} />
                       </div>
                   )
@@ -47,4 +47,4 @@ class RecipeCard extends React.Component {
     }
 }
 
-export default RecipeCard;
+export default RecipeList;

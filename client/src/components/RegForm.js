@@ -3,13 +3,10 @@ import axios from "axios";
 import { Form, Field, withFormik } from "formik";
 import * as Yup from "yup";
 
-const RegForm = (props, { errors, touched }) => {
+const RegForm = ({ errors, touched, isSubmitting }) => {
     return (
         <div className="formContainer">
-            <div>
-                <h2>Register Below</h2>
-            </div>
-            <Form onSubmit={props.onSubmit} data-testid="form">
+            <Form >
                 <label className='formGroup'>
                     <p className='label'>Username:</p>
                     <Field type='text' name='username' placeholder='Username' />
@@ -24,7 +21,10 @@ const RegForm = (props, { errors, touched }) => {
                         <p className='errors'>{errors.password}</p>
                     )}
                 </label>
-                <button type='submit' className="submit">Submit</button>
+                <button type='submit' 
+                        className="submit"
+                        disabled={isSubmitting || Object.keys(errors).length}
+                        >Submit</button>
             </Form>
         </div>
     )
@@ -43,7 +43,7 @@ const FormikRegForm = withFormik({
     //======VALIDATION SCHEMA==========
     validationSchema: Yup.object().shape({
         username: Yup.string()
-            .required("A unique username is required"),
+            .required("A username is required"),
 
         password: Yup.string()
             .min(6, 'Password must be 6 characters or longer')
@@ -52,12 +52,15 @@ const FormikRegForm = withFormik({
     //======END VALIDATION SCHEMA==========    
 
     //handle submit with axios post()
-    handleSubmit(values, { resetForm }) {
+    handleSubmit(values, { resetForm, setSubmitting }) {
         axios
             .post(`http://localhost:5000/api/register`, values)
             .then(res => {
-                console.log('Form was a success', res)
+                console.log('Form was a success', res);
+                localStorage.setItem('token', res.data.token)//This will be useful for private routes and sign up form
                 resetForm();
+                setSubmitting(false);
+
             })
             .catch(err => console.log('Opps! Something went wrong.', err.response));
     }

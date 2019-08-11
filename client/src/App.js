@@ -1,6 +1,6 @@
 import React from 'react';
 import RegForm from './components/RegForm';
-import RecipeCards from './components/RecipeList';
+import RecipeList from './components/RecipeList';
 
 import './App.css';
 
@@ -12,14 +12,19 @@ class App extends React.Component {
       users: []
     }
   }
-    
+
   render() {
     return (
       <div className="App">
-        <h1>Registration</h1>
-        <RegForm />
-        <h1>Recipe's</h1>
-        <RecipeCards />
+        <div className="header">
+          <h1>Recipes</h1>
+          <RegForm />
+          
+        </div>
+        <div className="Main">
+          {/* <h1>Recipe's</h1> */}
+          <RecipeList />
+        </div>
       </div>
     );
   }

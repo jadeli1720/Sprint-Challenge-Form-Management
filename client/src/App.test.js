@@ -18,6 +18,6 @@ describe('<App />', () => {
 
   it('renders App Title', () => {
     const title = render(<App/>);
-    title.getByText(/Registration/i);
+    title.getByText(/Recipes/i);
   })
 });
