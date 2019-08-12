@@ -1,0 +1,23 @@
+.App {
+  margin: 0 auto;
+  max-width: 1000px;
+  width: 100%;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-content: center;
+}
+
+/* h1 {
+  border: 1px blue solid;
+  width: 30%;
+} */
+
+.formContainer {
+  display: flex;
+  justify-content: flex-end;
+  width: 70%;
+}
+

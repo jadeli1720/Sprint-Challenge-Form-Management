@@ -24,36 +24,45 @@ In the challenge for this Sprint, you will demonstrate proficiency by creating a
 
 Demonstrate your understanding of this Sprint's concepts by answering the following free-form questions. Edit this document to include your answers after each question. Make sure to leave a blank line above and below your answer so it is clear and easy to read by your project manager.
 
-- [ ] What are the required parts of class components?
+- [X] What are the required parts of class components?
+        The required parts of class components are: 
+            1. Declaring the class component and extend it with the     React.Component - class MyComponene extends React.Component
+
+            2. Use the constructor function to set state and call super() to give us access to the this propety
+
+            3. Call the render() method to render our JSX to the DOM
 
 - [ ] Name at least three lifecycle methods?
+        Constructor method, render method, componentDidMount, componentDidUpdate, and componentWillUnmount
 
 - [ ] Why are forms used so often in web applications and software?
+        It's all about Data. Forms are used for login information, surveys, product information...
 
 - [ ] What advantages are there by using a forms library like Formik?
-
+        Formik can handle the state-management and change-handling with less lines of code, allowing for a streamlined version of code. It also allows for ease in form validation, and allowing for the customization of error codes.
 - [ ] Why do we write tests for our apps?
+        To minimizes the risk of bugs, especially if the bug pops up towards the end of production. It also sets us up early to think about edge cases, sets us up to write better testable code, and is a safety net and documentation
 
 ## Project Set Up
 
 Follow these steps to set up and work on your project:
 
-- [ ] Create a forked copy of this project.
-- [ ] Add PM as collaborator on Github.
-- [ ] Clone your OWN version of Repo. **(Not Lambda's by mistake!)**
-- [ ] Create a new Branch locally: `git checkout -b <firstName-lastName>`.
+- [x] Create a forked copy of this project.
+- [x] Add PM as collaborator on Github.
+- [x] Clone your OWN version of Repo. **(Not Lambda's by mistake!)**
+- [x] Create a new Branch locally: `git checkout -b <firstName-lastName>`.
 
-- [ ] Implement the project on this Branch, **committing progress & changes often.**
-- [ ] Push commits: `git push origin <firstName-lastName>`.
-- [ ] Navigate to the BE folder in this repository (this is where your server is located) from the command line, install the dependencies, and run `yarn start` or `npm start` to spin up the server provided for you.
-- [ ] In the terminal, navigate back to the main folder, then into the `client` folder.
-- [ ] Create your React app here.
+- [x] Implement the project on this Branch, **committing progress & changes often.**
+- [x] Push commits: `git push origin <firstName-lastName>`.
+- [x] Navigate to the BE folder in this repository (this is where your server is located) from the command line, install the dependencies, and run `yarn start` or `npm start` to spin up the server provided for you.
+- [x] In the terminal, navigate back to the main folder, then into the `client` folder.
+- [x] Create your React app here.
 
 Follow these steps for completing your project:
 
-- [ ] Submit a Pull-Request to merge <firstName-lastName> Branch into master (student's Repo).
-- [ ] Add your Project Manager as a Reviewer on the Pull-request.
-- [ ] PM then will count the HW as done by merging the branch back into master.
+- [x] Submit a Pull-Request to merge <firstName-lastName> Branch into master (student's Repo).
+- [x] Add your Project Manager as a Reviewer on the Pull-request.
+- [x] PM then will count the HW as done by merging the branch back into master.
 
 ## Minimum Viable Product
 
